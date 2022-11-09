@@ -55,7 +55,7 @@ const ServiceDetails = () => {
 
                     <div>
                         {
-                            review.map(review => <div className='bg-stone-100 p-4 rounded-lg mb-3'>
+                            review.map(review => <div key={review._id} className='bg-stone-100 p-4 rounded-lg mb-3'>
                                 <p className='text-lg py-3'>{review.reviewText}</p>
                                 <div>
                                     <h2>Review by-</h2>

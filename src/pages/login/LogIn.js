@@ -1,22 +1,28 @@
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../shared/AuthProvider';
 
 const LogIn = () => {
     const { googleLogIn, setUser, logIn } = useContext(AuthContext);
-    const [error, setError] = useState('')
+    const [error, setError] = useState('');
+    const location = useLocation();
+    const navigate = useNavigate();
+
+    let from = location?.state?.from?.pathname || '/';
 
     const handleLogin = (e) => {
         e.preventDefault();
         const form = e.target;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(email, password)
+        // console.log(email, password)
 
         logIn(email, password)
             .then(res => {
-                setUser(res.user)
+                setUser(res.user);
+                navigate(from, { replace: true })
                 console.log(res.user)
+
             })
             .catch(err => setError(err.message))
     }
@@ -27,6 +33,7 @@ const LogIn = () => {
             .then(res => {
                 console.log(res.user)
                 setUser(res.user)
+                navigate(from, { replace: true })
             })
             .catch(err => {
                 setError(err.message)
