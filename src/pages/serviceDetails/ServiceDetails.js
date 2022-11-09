@@ -1,8 +1,18 @@
-import React from 'react';
-import { useLoaderData } from 'react-router-dom'
+import React, { useContext } from 'react';
+import { useLoaderData } from 'react-router-dom';
+import { AuthContext } from '../../shared/AuthProvider';
 
 const ServiceDetails = () => {
-    const { img, title, description, price } = useLoaderData();
+    const { user } = useContext(AuthContext)
+    const { _id, img, title, description, price } = useLoaderData();
+
+    const addReview = (e) => {
+        e.preventDefault()
+        const reviewText = e.target.review.value;
+        const reviewData = { review: reviewText, serviceId: _id, title, reviewer: { reviewerImg: user.photoURL, name: user.displayName } }
+        console.log(reviewData)
+    }
+
     return (
         <section>
             <div>
@@ -16,7 +26,10 @@ const ServiceDetails = () => {
                     <hr className='my-4' />
                     <h3 className='text-2xl '>Below our client Review:</h3>
 
-
+                    <form onSubmit={addReview}>
+                        <textarea className='border-2 w-full p-3 focus:outline-green-400' name='review' placeholder='add your review'></textarea>
+                        <button className="border-none bg-blue-600 py-2 px-4 text-white font-medium rounded-lg hover:bg-red-400 duration-300">Add Review</button>
+                    </form>
                 </div>
             </div>
 

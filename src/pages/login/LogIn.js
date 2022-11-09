@@ -44,7 +44,7 @@ const LogIn = () => {
                         <label className="label">
                             <span className="label-text">Password</span>
                         </label>
-                        <input type="password" name='password' placeholder="password" className="input input-bordered" />
+                        <input type="password" name='password' placeholder="password" className="input input-bordered" required />
                         <label className="label">
                             <p className='text-sm'>
                                 you have no account?

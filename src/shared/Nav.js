@@ -1,7 +1,15 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from './AuthProvider';
 
 const Nav = () => {
+    const { user, logOut } = useContext(AuthContext);
+
+    const userLogOut = () => {
+        logOut()
+            .then()
+            .catch(err => console.log(err))
+    }
     return (
         <section className=' sticky top-0 z-10'>
             <div className="navbar bg-base-100">
@@ -24,7 +32,13 @@ const Nav = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <a className="btn" href='/'>Get started</a>
+                    {
+                        user ? <>
+                            <Link data-tip={user.displayName} className="tooltip tooltip-bottom"><img className='h-10 w-10 rounded-full' src={user?.photoURL} alt="" /></Link>
+                            <button onClick={userLogOut} className='btn btn-warning hover:text-white ml-2 duration-300 hover:bg-rose-600'>LogOut</button></>
+                            :
+                            <button className='btn btn-primary' >Login</button>
+                    }
                 </div>
             </div>
         </section>
