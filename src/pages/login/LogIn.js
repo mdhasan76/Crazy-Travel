@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../shared/AuthProvider';
 
 const LogIn = () => {
-    const { googleLogIn, setUser } = useContext(AuthContext)
+    const { googleLogIn, setUser, logIn } = useContext(AuthContext)
 
     const handleLogin = (e) => {
         e.preventDefault();
@@ -11,6 +11,13 @@ const LogIn = () => {
         const email = form.email.value;
         const password = form.password.value;
         console.log(email, password)
+
+        logIn(email, password)
+            .then(res => {
+                setUser(res.user)
+                console.log(res.user)
+            })
+            .then(err => console.log(err))
     }
 
     //Google LogIn 
