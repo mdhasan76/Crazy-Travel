@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const Nav = () => {
     return (
-        <section>
+        <section className=' sticky top-0 z-10'>
             <div className="navbar bg-base-100">
                 <div className="navbar-start">
                     <div className="dropdown">
