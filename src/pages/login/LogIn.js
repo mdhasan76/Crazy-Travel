@@ -1,9 +1,10 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../shared/AuthProvider';
 
 const LogIn = () => {
-    const { googleLogIn, setUser, logIn } = useContext(AuthContext)
+    const { googleLogIn, setUser, logIn } = useContext(AuthContext);
+    const [error, setError] = useState('')
 
     const handleLogin = (e) => {
         e.preventDefault();
@@ -17,7 +18,7 @@ const LogIn = () => {
                 setUser(res.user)
                 console.log(res.user)
             })
-            .then(err => console.log(err))
+            .catch(err => setError(err.message))
     }
 
     //Google LogIn 
@@ -27,7 +28,9 @@ const LogIn = () => {
                 console.log(res.user)
                 setUser(res.user)
             })
-            .catch(err => console.log(err))
+            .catch(err => {
+                setError(err.message)
+            })
     }
     return (
         <div className="hero bg-base-200">
@@ -51,7 +54,11 @@ const LogIn = () => {
                                 <Link to={'/register'} className="label-text-alt link link-hover"> Register Now</Link>
                             </p>
                         </label>
+
                     </div>
+                    {
+                        error && <p className='text-rose-600 '>{error}</p>
+                    }
                     <div className="form-control mt-3">
                         <button className="btn btn-primary">Login</button>
                     </div>

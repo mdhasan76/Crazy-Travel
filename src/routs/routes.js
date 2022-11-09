@@ -7,6 +7,8 @@ import ServiceDetails from '../pages/serviceDetails/ServiceDetails';
 import LogIn from '../pages/login/LogIn';
 import Register from '../pages/register/Register';
 import Err404 from '../pages/error/Err404';
+import MyReviews from '../pages/myReviews/MyReviews';
+import AddService from '../pages/addService/AddService';
 export const router = createBrowserRouter([
     {
         path: '/',
@@ -38,6 +40,14 @@ export const router = createBrowserRouter([
             {
                 path: '/register',
                 element: <Register />
+            },
+            {
+                path: '/myreviews',
+                element: <MyReviews />
+            },
+            {
+                path: '/addservice',
+                element: <AddService />
             }
         ]
     },
