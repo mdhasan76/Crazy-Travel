@@ -15,7 +15,7 @@ const ServiceDetails = () => {
             .then(data => {
                 setReview(data)
             })
-    }, [])
+    }, [_id])
     // console.log(review)
 
     const addReview = (e) => {
