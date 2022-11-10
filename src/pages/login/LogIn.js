@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import { AuthContext } from '../../shared/AuthProvider';
 
 const LogIn = () => {
@@ -21,6 +22,7 @@ const LogIn = () => {
             .then(res => {
                 setUser(res.user);
                 navigate(from, { replace: true })
+                toast.success("Login Sucessful")
                 console.log(res.user)
 
             })

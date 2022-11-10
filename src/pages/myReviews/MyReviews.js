@@ -63,7 +63,6 @@ const MyReviews = () => {
 
                     <div className='text-5xl min-h-[50vh] flex items-center justify-center'>You Have No Review added Yet</div>
             }
-            <ToastContainer></ToastContainer>
         </div>
     );
 };

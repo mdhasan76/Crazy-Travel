@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 const AddService = () => {
     const addNewService = (e) => {
@@ -19,7 +20,9 @@ const AddService = () => {
             body: JSON.stringify(newService)
         })
             .then(res => res.json())
-            .then(data => console.log(data))
+            .then(data => {
+                toast.success("Added New Service")
+            })
     }
     return (
         <div className="hero bg-base-200">

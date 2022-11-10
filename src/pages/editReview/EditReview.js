@@ -1,5 +1,6 @@
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 const EditReview = () => {
     const reviewData = useLoaderData();
@@ -17,7 +18,9 @@ const EditReview = () => {
             body: JSON.stringify({ updateText })
         })
             .then(res => res.json())
-            .then(data => console.log(data))
+            .then(data => {
+                toast.success("Review Update Sucessfull")
+            })
     }
     return (
         <div className='min-h-[80vh]'>
