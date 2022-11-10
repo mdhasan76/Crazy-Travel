@@ -43,7 +43,7 @@ const ServiceDetails = () => {
 
     return (
         <section>
-            <div>
+            <div className='p-4'>
                 <div>
                     <img src={img} className='object-cover w-full h-[350px] rounded-lg' alt="" />
                 </div>
