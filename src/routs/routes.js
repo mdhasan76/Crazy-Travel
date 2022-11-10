@@ -10,6 +10,7 @@ import Err404 from '../pages/error/Err404';
 import MyReviews from '../pages/myReviews/MyReviews';
 import AddService from '../pages/addService/AddService';
 import PrivateRoute from '../shared/PrivateRoute';
+import EditReview from '../pages/editReview/EditReview';
 export const router = createBrowserRouter([
     {
         path: '/',
@@ -49,6 +50,10 @@ export const router = createBrowserRouter([
             {
                 path: '/addservice',
                 element: <PrivateRoute><AddService /></PrivateRoute>
+            },
+            {
+                path: '/editreview',
+                element: <EditReview />
             }
         ]
     },
