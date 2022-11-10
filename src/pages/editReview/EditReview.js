@@ -12,7 +12,7 @@ const EditReview = () => {
         const updateText = e.target.updateText.value;
         console.log(updateText);
 
-        fetch(`http://localhost:5000/editreview/${reviewData._id}`, {
+        fetch(`https://crazy-travle-server.vercel.app/editreview/${reviewData._id}`, {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json"

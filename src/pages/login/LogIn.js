@@ -27,7 +27,7 @@ const LogIn = () => {
 
                 console.log(currentUser)
                 //get user token 
-                fetch("http://localhost:5000/jwt", {
+                fetch("https://crazy-travle-server.vercel.app/jwt", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json"

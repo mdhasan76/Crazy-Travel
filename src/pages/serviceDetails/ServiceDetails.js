@@ -10,7 +10,7 @@ const ServiceDetails = () => {
     useTitle("Service Details")
 
     useEffect(() => {
-        fetch(`http://localhost:5000/review/${_id}`)
+        fetch(`https://crazy-travle-server.vercel.app/review/${_id}`)
             .then(res => res.json())
             .then(data => {
                 setReview(data)
@@ -28,7 +28,7 @@ const ServiceDetails = () => {
             reviewer: { email: user.email, reviewerImg: user.photoURL, name: user.displayName }
         }
 
-        fetch("http://localhost:5000/addreview", {
+        fetch("https://crazy-travle-server.vercel.app/addreview", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

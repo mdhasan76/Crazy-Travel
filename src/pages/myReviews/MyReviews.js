@@ -14,7 +14,7 @@ const MyReviews = () => {
 
 
     useEffect(() => {
-        fetch(`http://localhost:5000/myreviews?email=${user?.email}`, {
+        fetch(`https://crazy-travle-server.vercel.app/myreviews?email=${user?.email}`, {
             headers: {
                 authorization: `Bearer ${localStorage.getItem('token')}`
             }
@@ -33,7 +33,7 @@ const MyReviews = () => {
     console.log(reviewData)
 
     const deleteReview = (id) => {
-        fetch(`http://localhost:5000/deletereview/${id}`, {
+        fetch(`https://crazy-travle-server.vercel.app/deletereview/${id}`, {
             method: "DELETE",
         })
             .then(res => res.json())

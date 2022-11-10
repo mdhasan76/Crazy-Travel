@@ -13,7 +13,7 @@ const AddService = () => {
         const description = form.description.value;
         // console.log(title, img, price, description
         const newService = { title, img, price, description }
-        fetch("http://localhost:5000/addservice", {
+        fetch("https://crazy-travle-server.vercel.app/addservice", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
