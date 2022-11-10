@@ -4,7 +4,7 @@ const State = () => {
     return (
         <div className='bg-stone-100 mb-3 py-10'>
             <div className='text-4xl font-semibold text-center mb-4'>
-                My service Quality
+                My service Quality Rating
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-3 text-center">
 
