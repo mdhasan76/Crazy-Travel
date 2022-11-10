@@ -1,8 +1,9 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import useTitle from '../../shared/useTitle';
 
 const AddService = () => {
+    useTitle("Add Service")
     const addNewService = (e) => {
         e.preventDefault();
         const form = e.target;

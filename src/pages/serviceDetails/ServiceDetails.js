@@ -1,11 +1,13 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../shared/AuthProvider';
+import useTitle from '../../shared/useTitle';
 
 const ServiceDetails = () => {
     const { user } = useContext(AuthContext)
     const { _id, img, title, description, price } = useLoaderData();
     const [review, setReview] = useState([]);
+    useTitle("Service Details")
 
     useEffect(() => {
         fetch(`http://localhost:5000/review/${_id}`)
@@ -14,7 +16,7 @@ const ServiceDetails = () => {
                 setReview(data)
             })
     }, [])
-    console.log(review)
+    // console.log(review)
 
     const addReview = (e) => {
         e.preventDefault()

@@ -1,6 +1,8 @@
 import React from 'react';
+import useTitle from '../../shared/useTitle';
 
 const Blog = () => {
+    useTitle("Blog")
     return (
         <section>
             <div className='bg-indigo-500 p-10  rounded-lg'>

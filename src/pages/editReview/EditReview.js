@@ -1,9 +1,11 @@
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import useTitle from '../../shared/useTitle';
 
 const EditReview = () => {
     const reviewData = useLoaderData();
+    useTitle("Edit Review")
     // console.log(reviewData)
     const updateReview = (e) => {
         e.preventDefault();

@@ -2,13 +2,15 @@ import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../shared/AuthProvider';
 import { MdDelete } from 'react-icons/md'
 import { FaEdit } from 'react-icons/fa';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import { Link } from 'react-router-dom'
 import 'react-toastify/dist/ReactToastify.css';
+import useTitle from '../../shared/useTitle';
 
 const MyReviews = () => {
     const { user } = useContext(AuthContext);
-    const [reviewData, setReviewData] = useState([])
+    const [reviewData, setReviewData] = useState([]);
+    useTitle("My Reviews")
 
 
     useEffect(() => {

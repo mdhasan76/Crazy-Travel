@@ -1,8 +1,10 @@
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
+import useTitle from '../../shared/useTitle';
 import ServiceCard from '../home/ServiceCard';
 
 const Allservices = () => {
+    useTitle("Services")
     const services = useLoaderData();
     // if (!services) {
     //     return <div className="flex justify-center items-center h-[50vh]">
