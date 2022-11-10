@@ -8,18 +8,28 @@ import 'react-toastify/dist/ReactToastify.css';
 import useTitle from '../../shared/useTitle';
 
 const MyReviews = () => {
-    const { user } = useContext(AuthContext);
+    const { user, logOut } = useContext(AuthContext);
     const [reviewData, setReviewData] = useState([]);
     useTitle("My Reviews")
 
 
     useEffect(() => {
-        fetch(`http://localhost:5000/myreviews?email=${user?.email}`)
-            .then(res => res.json())
+        fetch(`http://localhost:5000/myreviews?email=${user?.email}`, {
+            headers: {
+                authorization: `Bearer ${localStorage.getItem('token')}`
+            }
+        })
+            .then(res => {
+                if (res.status === 401 || res.status === 403) {
+                    localStorage.removeItem('token')
+                    return logOut()
+                }
+                return res.json()
+            })
             .then(data => {
                 setReviewData(data)
             })
-    }, [user?.email, reviewData])
+    }, [user?.email, reviewData, logOut])
     console.log(reviewData)
 
     const deleteReview = (id) => {
