@@ -30,7 +30,7 @@ const MyReviews = () => {
                 setReviewData(data)
             })
     }, [user?.email, reviewData, logOut])
-    console.log(reviewData)
+    // console.log(reviewData)
 
     const deleteReview = (id) => {
         fetch(`https://crazy-travle-server.vercel.app/deletereview/${id}`, {

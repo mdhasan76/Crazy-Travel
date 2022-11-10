@@ -28,10 +28,6 @@ const Blog = () => {
                     </p>
                 </div>
             </div>
-            <div class='flex items-center justify-center min-h-screen'>
-                <div style={{ borderTopColor: "transparent" }} class="w-8 h-8 border-4 border-blue-200 rounded-full animate-spin"></div>
-                <p class="ml-2">cargando...</p>
-            </div>
         </section>
     );
 };
