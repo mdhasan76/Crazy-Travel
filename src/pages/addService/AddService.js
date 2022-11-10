@@ -1,9 +1,59 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const AddService = () => {
+    const addNewService = (e) => {
+        e.preventDefault();
+        const form = e.target;
+        const title = form.title.value;
+        const img = form.photo.value;
+        const price = form.price.value;
+        const description = form.description.value;
+        // console.log(title, img, price, description
+        const newService = { title, img, price, description }
+        fetch("http://localhost:5000/addservice", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(newService)
+        })
+            .then(res => res.json())
+            .then(data => console.log(data))
+    }
     return (
-        <div>
-            add services page
+        <div className="hero bg-base-200">
+            <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100  my-10">
+                <form onSubmit={addNewService} className="card-body">
+                    <div className="form-control">
+                        <label className="label">
+                            <span className="label-text">Service Title</span>
+                        </label>
+                        <input type="text" placeholder="Title" name='title' className="input input-bordered" required />
+                    </div>
+                    <div className="form-control">
+                        <label className="label">
+                            <span className="label-text">Img URL</span>
+                        </label>
+                        <input type="text" placeholder="serice url" name='photo' className="input input-bordered" required />
+                    </div>
+                    <div className="form-control">
+                        <label className="label">
+                            <span className="label-text">price</span>
+                        </label>
+                        <input type="number" name="price" placeholder='$' className="input input-bordered" required />
+                    </div>
+                    <div className="form-control">
+                        <label className="label">
+                            <span className="label-text">Description</span>
+                        </label>
+                        <textarea className='border-2 p-2' name="description" placeholder='Write Description' required></textarea>
+                    </div>
+                    <div className="form-control mt-3">
+                        <button className="btn btn-primary">Add Service</button>
+                    </div>
+                </form>
+            </div>
         </div>
     );
 };
