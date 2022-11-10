@@ -17,7 +17,7 @@ const MyReviews = () => {
             .then(data => {
                 setReviewData(data)
             })
-    }, [user?.email])
+    }, [user?.email, reviewData])
     console.log(reviewData)
 
     const deleteReview = (id) => {
@@ -34,10 +34,11 @@ const MyReviews = () => {
     }
 
     return (
-        <div>
-            <h2 className='text-3xl font-semibold py-3 mb-4'>My Review List:-</h2>
+        <div className='p-4'>
+            <h2 className='text-3xl font-semibold py-3 mb-4'> Review List:-</h2>
             {
                 reviewData.length > 0 ?
+
                     reviewData.map(review =>
 
                         <div key={review._id} className='p-3 mb-3 bg-indigo-200 grid grid-cols-5 items-center rounded-lg'>
@@ -47,12 +48,12 @@ const MyReviews = () => {
                             </div>
                             <div className='text-right'>
 
-                                <Link to={'/editreview'}><div className='inline-block  bg-white p-3 rounded-full duration-300 hover:bg-gray-300 hover:text-green-500 mx-3 text-center'>
-                                    <FaEdit className='text-3xl ' />
+                                <Link to={`/editreview/${review._id}`}><div className='inline-block  bg-white m-2 p-3 rounded-full duration-300 hover:bg-gray-300 hover:text-green-500 text-center'>
+                                    <FaEdit className='text-lg sm:text-3xl ' />
                                 </div></Link>
                                 <Link>
-                                    <div onClick={() => deleteReview(review._id)} className='inline-block  bg-white p-3 rounded-full duration-300 text-red-400 hover:text-white hover:bg-red-400'>
-                                        <MdDelete className='text-3xl ' />
+                                    <div onClick={() => deleteReview(review._id)} className='inline-block m-2  bg-white p-3 rounded-full duration-300 text-red-400 hover:text-white hover:bg-red-400'>
+                                        <MdDelete className='text-lg sm:text-3xl ' />
                                     </div></Link>
 
                             </div>
