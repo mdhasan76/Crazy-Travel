@@ -1,12 +1,18 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Banner = () => {
     return (
-        <div className='bg-[url("/src/assets/img/travel.jpg")] py-16 sm:py-20 lg:py-[150px] bg-cover bg-no-repeat rounded-lg'>
-            <div className='flex justify-end '>
+
+        <div className='h-screen relative bg-gradient-to-b from-stone-800 to-slate-500'>
+            <img src="http://www.nicdarkthemes.com/themes/travel/wp/demo/intro/img/parallax/header-03.jpg" alt="/" className='absolute h-full w-full object-cover mix-blend-overlay' />
+            <div className='grid place-items-center h-full text-center'>
                 <div className='max-w-2xl px-7 lg:px-10 '>
-                    <h2 style={{ 'lineHeight': '1.5' }} className='  md:text-white font-bold text-3xl md:text-4xl lg:text-5xl'>Take Best Serivce & Make enjoyeble Trip with me</h2>
-                    <p className='text-lg opacity-90 font-medium py-3 md:text-white'>Good idea and Good Person make your life easy. so, Discussion with me and take Right decission from me. </p>
+                    <h2 style={{ 'lineHeight': '1.5' }} className='text-white font-bold text-5xl md:text-7xl'><span className='text-transparent bg-clip-text bg-gradient-to-l from-cyan-600 to-teal-500'>LOVE</span> & Travel</h2>
+                    <p style={{ lineHeight: "32px" }} className=' tracking-[2px] uppercase opacity-90 py-3 text-white text-xs sm:text-sm'>Good idea and Good Person make your life easy. so, Discussion with me and take Right decission from me. </p>
+
+                    <Link to="/services"
+                        className='inline-block text-white bg-gradient-to-l to-teal-600 from-teal-500 px-8 py-3 lett rounded-lg mt-4 duration-300 font-medium animate-bounce'>BUY NOW</Link>
                 </div>
             </div>
         </div>
