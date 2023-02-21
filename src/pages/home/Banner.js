@@ -1,11 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import bannerImg from "../../assets/img/header-03.jpg" 
 
 const Banner = () => {
     return (
 
         <div className='h-screen relative bg-gradient-to-b from-stone-800 to-slate-500'>
-            <img src="http://www.nicdarkthemes.com/themes/travel/wp/demo/intro/img/parallax/header-03.jpg" alt="/" className='absolute h-full w-full object-cover mix-blend-overlay' />
+            <img src={bannerImg} alt="/" className='absolute h-full w-full object-cover mix-blend-overlay' />
             <div className='grid place-items-center h-full text-center'>
                 <div className='max-w-2xl px-7 lg:px-10 '>
                     <h2 style={{ 'lineHeight': '1.5' }} className='text-white font-bold text-5xl md:text-7xl'><span className='text-transparent bg-clip-text bg-gradient-to-l from-cyan-600 to-teal-500'>LOVE</span> & Travel</h2>
