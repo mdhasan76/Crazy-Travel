@@ -12,7 +12,7 @@ const Banner = () => {
                     <p style={{ lineHeight: "32px" }} className=' tracking-[2px] uppercase opacity-90 py-3 text-white text-xs sm:text-sm'>Good idea and Good Person make your life easy. so, Discussion with me and take Right decission from me. </p>
 
                     <Link to="/services"
-                        className='inline-block text-white bg-gradient-to-l to-teal-600 from-teal-500 px-8 py-3 lett rounded-lg mt-4 duration-300 font-medium animate-bounce'>BUY NOW</Link>
+                        className='inline-block text-white bg-gradient-to-l to-teal-600 from-teal-500 px-8 py-3 lett rounded-full mt-4 duration-300 font-medium animate-bounce'>BOOK NOW</Link>
                 </div>
             </div>
         </div>
