@@ -21,9 +21,9 @@ const ServiceCard = ({ service }) => {
                             description
                     }
                 </p>
-                <div className="card-actions justify-end">
+                <div className="card-actions mt-5">
                     <Link to={`/service/${_id}`}>
-                        <button className="border-none bg-blue-600 py-2 px-4 text-white font-medium rounded-lg hover:bg-red-400 duration-300 ">Dtails</button>
+                        <button className="tracking-[2px] uppercase bg-[#85cdca]  py-2 px-5 text-sm rounded-full text-white">Dtails</button>
                     </Link>
                 </div>
             </div>

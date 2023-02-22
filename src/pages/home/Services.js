@@ -10,10 +10,10 @@ const Services = () => {
         <section className='my-10 max-w-6xl mx-auto'>
             <div className='text-center py-8'>
                 <p className='mb-3 tracking-[2px]'>THE BEST CHOISE</p>
-                <h2 className='text-4xl font-bold'>OUR <span 
+                <h2 className='text-4xl font-extrabold'>OUR <span 
                 className='  relative
-                after:content[""] after:absolute text-gray-800 after:w-full 
-                after:h-[5px] after:left-0 after:bottom-1.5 after:bg-[#85cdca] after:opacity-50 after:-z-10'>PACKAGES</span></h2>
+                after:content[""] after:absolute after:w-full 
+                after:h-[5px] after:left-0 after:bottom-2 after:bg-[#85cdca] after:opacity-50 after:-z-10'>PACKAGES</span></h2>
             </div>
             <div className='grid grid-cols-1 sm:grid-cols-2 gap-5  md:grid-cols-3 p-4'>
                 {
