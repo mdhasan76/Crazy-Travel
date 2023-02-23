@@ -1,6 +1,6 @@
 import React from 'react';
+import { toast } from 'react-hot-toast';
 import { useLoaderData } from 'react-router-dom';
-import { toast } from 'react-toastify';
 import useTitle from '../../shared/useTitle';
 
 const EditReview = () => {

@@ -2,10 +2,9 @@ import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../shared/AuthProvider';
 import { MdDelete } from 'react-icons/md'
 import { FaEdit } from 'react-icons/fa';
-import { toast } from 'react-toastify';
-import { Link } from 'react-router-dom'
-import 'react-toastify/dist/ReactToastify.css';
+import { Link } from 'react-router-dom';
 import useTitle from '../../shared/useTitle';
+import { toast } from 'react-hot-toast';
 
 const MyReviews = () => {
     const { user, logOut } = useContext(AuthContext);

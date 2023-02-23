@@ -22,7 +22,7 @@ const Nav = () => {
                             <li><Link to={'/'}>Home</Link></li>
                             <li><Link to={'/services'}>Services</Link></li>
                             <li><Link to={'/blog'}>Blog</Link></li>
-                            <li><Link to={'/contact'}>Contact</Link></li>
+                            <li><a href={'#contact'}>Contact</a></li>
                             {
                                 user && <>
                                     <li><Link to={'/myreviews'}>My Reviews</Link>
@@ -38,7 +38,7 @@ const Nav = () => {
                         <li><Link to={'/'}>Home</Link></li>
                         <li><Link to={'/services'}>Services</Link></li>
                         <li><Link to={'/blog'}>Blog</Link></li>
-                            <li><Link to={'/contact'}>Contact</Link></li>
+                            <li><a href={'#contact'}>Contact</a></li>
                         {
                             user && <>
                                 <li><Link to={'/myreviews'}>My Reviews</Link>

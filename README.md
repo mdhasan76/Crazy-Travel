@@ -11,7 +11,7 @@ Component & Library
  3. tailwind
  4. firebase 
  5. jwt security
- 6. react toastify
+ 6. react Hot Toast
  7. Mongodb
 
 1. Deploy
