@@ -11,8 +11,8 @@ const Nav = () => {
             .catch(err => console.log(err))
     }
     return (
-        <section className='sticky top-0 z-30'>
-            <div className="navbar bg-white">
+        <section className='sticky top-0 z-30 font-semibold'>
+            <div className="navbar  bg-[#1a4e7b] text-white">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -22,6 +22,7 @@ const Nav = () => {
                             <li><Link to={'/'}>Home</Link></li>
                             <li><Link to={'/services'}>Services</Link></li>
                             <li><Link to={'/blog'}>Blog</Link></li>
+                            <li><Link to={'/contact'}>Contact</Link></li>
                             {
                                 user && <>
                                     <li><Link to={'/myreviews'}>My Reviews</Link>
@@ -30,13 +31,14 @@ const Nav = () => {
                             }
                         </ul>
                     </div>
-                    <a className="btn btn-ghost normal-case text-xl" href='/'>Crazy Travel</a>
+                    <p className="btn btn-ghost normal-case text-xl">Crazy Travel</p>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal p-0">
                         <li><Link to={'/'}>Home</Link></li>
                         <li><Link to={'/services'}>Services</Link></li>
                         <li><Link to={'/blog'}>Blog</Link></li>
+                            <li><Link to={'/contact'}>Contact</Link></li>
                         {
                             user && <>
                                 <li><Link to={'/myreviews'}>My Reviews</Link>
@@ -49,9 +51,9 @@ const Nav = () => {
                     {
                         user ? <>
                             <Link data-tip={user.displayName} className="tooltip tooltip-bottom"><img className='h-10 w-10 rounded-full' src={user?.photoURL} alt="" /></Link>
-                            <button onClick={userLogOut} className='btn btn-warning btn-sm sm:btn-md hover:text-white ml-2 duration-300 hover:bg-rose-600'>LogOut</button></>
+                            <button onClick={userLogOut} className='bg-cyan-600 py-2 px-4 rounded mr-2 hover:bg-rose-600 duration-300'>LogOut</button></>
                             :
-                            <Link to={'/login'} className='btn btn-primary' >Login</Link>
+                            <Link to={'/login'} className='bg-cyan-600 py-2 px-4 rounded mr-2 hover:bg-cyan-400 duration-300' >Login</Link>
                     }
                 </div>
             </div>

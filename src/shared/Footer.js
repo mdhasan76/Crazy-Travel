@@ -3,7 +3,7 @@ import { FaFacebook, FaYoutube, FaGithub } from 'react-icons/fa';
 
 const Footer = () => {
     return (
-        <footer className="footer footer-center p-6 bg-black text-white ">
+        <footer className="footer footer-center p-6 bg-[#1a4e7b] text-white ">
             <div>
                 <p className="font-bold">
                     Tourist Hasan
