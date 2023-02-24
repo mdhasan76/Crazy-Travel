@@ -24,7 +24,7 @@ const Services = () => {
 
             </div>
             <div className='text-center mt-6'>
-                <Link to={'/services'} className="inline-block border-none bg-blue-600 py-2 px-4 text-white font-medium rounded-lg hover:bg-red-400 duration-300 hover:scale-105">See More <AiOutlineArrowRight className='inline' /> </Link>
+                <Link to={'/services'} className="inline-block border-none bg-[#003a6c] py-2 px-4 text-white font-medium rounded-lg hover:bg-[#05233d] duration-300 hover:scale-105">See More <AiOutlineArrowRight className='inline' /> </Link>
             </div>
         </section>
     );

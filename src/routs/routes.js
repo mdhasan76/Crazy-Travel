@@ -11,6 +11,8 @@ import MyReviews from '../pages/myReviews/MyReviews';
 import AddService from '../pages/addService/AddService';
 import PrivateRoute from '../shared/PrivateRoute';
 import EditReview from '../pages/editReview/EditReview';
+import BlogDetails from '../pages/blog/BlogDetails';
+import Hotels from '../pages/hotels/Hotels';
 export const router = createBrowserRouter([
     {
         path: '/',
@@ -36,12 +38,20 @@ export const router = createBrowserRouter([
                 element: <Blog />
             },
             {
+                path: '/blog/:id',
+                element: <BlogDetails />
+            },
+            {
                 path: '/login',
                 element: <LogIn />
             },
             {
                 path: '/register',
                 element: <Register />
+            },
+            {
+                path: '/hotels',
+                element: <Hotels />
             },
             {
                 path: '/myreviews',

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import {MdOutlineDateRange} from "react-icons/md"
 
 const BlogCard = ({data}) => {
-    const {cardImg, date,title, description3, } = data;
+    const {cardImg, date,title, description3,id } = data;
     return (
         <div>
             <div className='[&_.imgClass]:hover:scale-105 mb-5'>
@@ -17,7 +17,7 @@ const BlogCard = ({data}) => {
                     <Link className='inline-block text-xl font-semibold mb-6 text-black'>{title}</Link>
                     <p style={{lineHeight: "30px"}} className='mb-8 opacity-80'>
                         {description3.slice(0, 120)}...</p>
-                    <Link to="" className='mt-2 mb-8 px-3 py-2 bg-slate-300 text-[#003a6c] hover:bg-[#003a6c] hover:text-white duration-500 tracking-[2px] text-xs'>READ MORE +</Link>
+                    <Link to={`/blog/${id}`} className='mt-2 mb-8 px-3 py-2 bg-slate-300 text-[#003a6c] hover:bg-[#0b3962] hover:text-white duration-500 tracking-[2px] text-xs'>READ MORE +</Link>
                 </div>
         </div>
     );

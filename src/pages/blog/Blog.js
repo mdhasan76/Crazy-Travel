@@ -1,25 +1,16 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext } from 'react';
 import useTitle from '../../shared/useTitle';
 import bannerImg from '../../assets/img/blogbanner.jpg';
 import {AiOutlineRight} from "react-icons/ai"
 import { Link } from 'react-router-dom';
-import axios from 'axios';
 import BlogCard from './BlogCard';
+import { AuthContext } from '../../shared/AuthProvider';
  
 const Blog = () => {
     useTitle("Blog");
-    const [blogData, setblogData] = useState([]);
+    const {blogData} = useContext(AuthContext)
 
-    // Load blog data
-    useEffect( () =>{
-        axios.get('/blogDetails.json')
-        .then(function (res){
-            setblogData(res.data)
-        })
-        .catch(function (err){
-            console.log(err)
-        })
-    },[]) 
+   
 
     return (
         <section >

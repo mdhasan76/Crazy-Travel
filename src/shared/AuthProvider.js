@@ -1,12 +1,14 @@
 import React, { createContext, useEffect, useState } from 'react';
 import app from '../firebase/firebase.config';
 import { createUserWithEmailAndPassword, getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from 'firebase/auth'
+import axios from 'axios';
 
 const AuthContext = createContext();
 const auth = getAuth(app)
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState({});
     const [loading, setLoading] = useState(false)
+    const [blogData, setblogData] = useState([]);
 
     const googleProvider = new GoogleAuthProvider()
 
@@ -55,9 +57,21 @@ const AuthProvider = ({ children }) => {
         return () => {
             subscribe()
         }
-    }, [])
+    }, []);
 
-    const authInfo = { user, setUser, googleLogIn, createNewUser, logIn, updateUserProfile, logOut }
+    // loadBlogData 
+     // Load blog data
+     useEffect( () =>{
+        axios.get('/blogDetails.json')
+        .then(function (res){
+            setblogData(res.data)
+        })
+        .catch(function (err){
+            console.log(err)
+        })
+    },[]); 
+
+    const authInfo = { user, setUser, googleLogIn, createNewUser, logIn, updateUserProfile, logOut,loading,blogData }
     return (
         <AuthContext.Provider value={authInfo}>
             {
