@@ -65,8 +65,9 @@ const BlogDetails = () => {
                     <p style={{ lineHeight: "30px" }} className='mb-8 font-poppins text-justify'>{description5}</p>
                 </div>
 
+                {/* Author Details  */}
                 <div className='relative my-10 mb-20'>
-                    <hr/>
+                    <hr />
                     <div className='absolute -top-14 left-[44%] '>
                         <img src={author.authorImg} alt="" className='w-28 h-28 ring-8 ring-white rounded-full object-cover
                         ' />
@@ -75,9 +76,43 @@ const BlogDetails = () => {
                         <p className='text-sm tracking-[1.5px] text-[#003a6c] font-semibold'>AUTHOR</p>
                         <p className='text-2xl font-semibold mb-8'>{author.name}</p>
                         <p style={{ lineHeight: "30px" }} className='mb-10 text-sm font-poppins text-center'>{author.authorDescription}</p>
-                        <hr/>
+                        <hr />
                     </div>
                 </div>
+
+                {/* Leave a commet part  */}
+                <div>
+                    <div className='relative'>
+                        <p className=' before:top-1/2 before:-z-10 before:absolute before:h-[1px] before:w-[35%] before:left-0 before:bg-slate-300 
+                        after:top-1/2 after:-z-10 after:absolute after:h-[1px] after:w-[35%] after:right-0 after:bg-slate-300
+                        text-center font-semibold text-2xl uppercase text-black tracking-[1px]'>Leave a Comment</p>
+
+                    </div>
+                    <form>
+                        <div className='mt-10 mb-8'>
+                            <p className='mb-3'>Your email address will not be published.</p>
+                            <p>Required fields are marked *</p>
+                        </div>
+                        <div className='mb-8'>
+                            <p className='mb-4'>Comment </p>
+                            <textarea rows={5} className='outline outline-gray-200 outline-1 p-5 focus:outline-gray-200 focus:bg-[#f2f2f2] duration-300 w-full py-3 resize-none'></textarea>
+                        </div>
+                        <div className='mb-8'>
+                            <p className='mb-4'>Name* </p>
+                            <input type="text" className='outline outline-gray-200 outline-1 p-5 focus:outline-gray-200 focus:bg-[#f2f2f2] duration-300 w-full py-3' />
+                        </div>
+                        <div className='mb-8'>
+                            <p className='mb-4'>Email* </p>
+                            <input type="email" className='outline outline-gray-200 outline-1 p-5 focus:outline-gray-200 focus:bg-[#f2f2f2] duration-300 w-full py-3' />
+                        </div>
+                        <div className='mb-8'>
+                            <p className='mb-4'>Website* </p>
+                            <input type="text" className='outline outline-gray-200 outline-1 p-5 focus:outline-gray-200 focus:bg-[#f2f2f2] duration-300 w-full py-3' />
+                        </div>
+                        <input type="submit" value="POST COMMENT" className='bg-[#01abff] py-3 px-5 text-white tracking-widest' />
+                    </form>
+                </div>
+
             </div>
         </section>
     );
