@@ -19,7 +19,7 @@ const BlogDetails = () => {
                 <img src={banner} alt="/" className='absolute h-full w-full object-cover mix-blend-overlay' />
                 <div className='flex flex-col justify-end h-full mx-auto p-10 md:p-20'>
                     <h2 className=' font-bold mb-3 tracking-[5px] text-3xl flex items-center'>Blog</h2>
-                    <p className='font-medium text-lg flex'><Link to={'/'}>Home </Link>
+                    <p className='font-medium text-sm sm:text-lg flex'><Link to={'/'}>Home </Link>
                         <span className='inline-block'>{<AiOutlineRight className=' inline-block text-2xl ml-2 mr-2'
                         />}
                         </span> <span className='inline-block'><Link to="/blog"> Blog {<AiOutlineRight className='text-2xl ml-2 inline-block ' />}  </Link></span>
@@ -29,7 +29,7 @@ const BlogDetails = () => {
             </div>
             <div className='max-w-4xl mx-auto p-5 lg:p-0 my-10'>
                 <div>
-                    {/* <img src={cardImg} alt="" className=''/> */}
+                    <img src={cardImg} alt="" className='mb-5'/>
                 </div>
                 <div className='flex items-center mb-5'>
                     <div className='flex'>
@@ -52,8 +52,8 @@ const BlogDetails = () => {
                 <p style={{ lineHeight: "30px" }} className='mb-8 font-poppins text-justify'>{description1}</p>
                 <p style={{ lineHeight: "30px" }} className='mb-8 font-poppins text-justify'>{description2}</p>
 
-                <div className='grid grid-cols-6 mb-8'>
-                    <div className='col-span-2'><img src={travelBestImg} className="h-72" alt="" /></div>
+                <div className='md:grid grid-cols-6 mb-8'>
+                    <div className='col-span-2'><img src={travelBestImg} className="h-72 mx-auto mb-5" alt="" /></div>
                     <div className='col-span-4 ml-5 '>
                         <h3 className='text-xl mb-5 font-semibold text-black'>Getting the best of Travel</h3>
                         <p style={{ lineHeight: "30px" }} className='mb-8 font-poppins text-justify'>{description3}</p>
@@ -94,19 +94,19 @@ const BlogDetails = () => {
                             <p>Required fields are marked *</p>
                         </div>
                         <div className='mb-8'>
-                            <p className='mb-4'>Comment </p>
-                            <textarea rows={5} className='outline outline-gray-200 outline-1 p-5 focus:outline-gray-200 focus:bg-[#f2f2f2] duration-300 w-full py-3 resize-none'></textarea>
+                            <p className='mb-4'>Comment <span className='text-red-600'> *</span> </p>
+                            <textarea rows={5} className='outline outline-gray-200 outline-1 p-5 focus:outline-gray-200 focus:bg-[#f2f2f2] duration-300 w-full py-3 resize-none' required></textarea>
                         </div>
                         <div className='mb-8'>
-                            <p className='mb-4'>Name* </p>
-                            <input type="text" className='outline outline-gray-200 outline-1 p-5 focus:outline-gray-200 focus:bg-[#f2f2f2] duration-300 w-full py-3' />
+                            <p className='mb-4'>Name<span className='text-red-600'> *</span> </p>
+                            <input type="text" className='outline outline-gray-200 outline-1 p-5 focus:outline-gray-200 focus:bg-[#f2f2f2] duration-300 w-full py-3' required/>
                         </div>
                         <div className='mb-8'>
-                            <p className='mb-4'>Email* </p>
-                            <input type="email" className='outline outline-gray-200 outline-1 p-5 focus:outline-gray-200 focus:bg-[#f2f2f2] duration-300 w-full py-3' />
+                            <p className='mb-4'>Email<span className='text-red-600'> *</span> </p>
+                            <input type="email" className='outline outline-gray-200 outline-1 p-5 focus:outline-gray-200 focus:bg-[#f2f2f2] duration-300 w-full py-3' required />
                         </div>
                         <div className='mb-8'>
-                            <p className='mb-4'>Website* </p>
+                            <p className='mb-4'>Website </p>
                             <input type="text" className='outline outline-gray-200 outline-1 p-5 focus:outline-gray-200 focus:bg-[#f2f2f2] duration-300 w-full py-3' />
                         </div>
                         <input type="submit" value="POST COMMENT" className='bg-[#01abff] py-3 px-5 text-white tracking-widest' />
