@@ -1,4 +1,3 @@
-//Assainment -11
 
 This site is Personal Travel services related site. Any one can buy a service from this person. Any one can add personal Service . i also add a Review funconality . anyone can add her own review. so that service provider improve her service quality seeing custmer feedback and review. this site is secure every person . cause i use JWT token verify. so that no one can't see other person profile.
 
