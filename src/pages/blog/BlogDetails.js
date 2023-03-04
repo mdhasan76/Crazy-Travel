@@ -1,16 +1,15 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { AiFillHeart, AiOutlineRight } from 'react-icons/ai';
 import { MdOutlineDateRange } from 'react-icons/md';
 import { FiMessageCircle } from 'react-icons/fi';
 import { FaEye } from 'react-icons/fa';
-import { Link, useParams } from 'react-router-dom';
-import { AuthContext } from '../../shared/AuthProvider';
+import { Link, useLoaderData, useParams } from 'react-router-dom';
 
 const BlogDetails = () => {
+    const data = useLoaderData();
     const { id } = useParams();
-    const { blogData } = useContext(AuthContext);
 
-    const { banner, cardImg, date, description1, description2, description3, description4, description5, react, title, view, travelBestImg, author } = blogData.find(d => d.id === parseInt(id));
+    const { banner, cardImg, date, description1, description2, description3, description4, description5, react, title, view, travelBestImg, author } = data.find(d => d.id === parseInt(id));
     // console.log(details)
     return (
         <section >

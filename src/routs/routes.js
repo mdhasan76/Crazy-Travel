@@ -13,6 +13,8 @@ import PrivateRoute from '../shared/PrivateRoute';
 import EditReview from '../pages/editReview/EditReview';
 import BlogDetails from '../pages/blog/BlogDetails';
 import Hotels from '../pages/hotels/Hotels';
+import Contact from '../pages/home/Contact';
+import HotelDetails from '../pages/hotels/HotelDetails';
 export const router = createBrowserRouter([
     {
         path: '/',
@@ -39,6 +41,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/blog/:id',
+                loader: () => fetch('/blogDetails.json'),
                 element: <BlogDetails />
             },
             {
@@ -50,8 +53,16 @@ export const router = createBrowserRouter([
                 element: <Register />
             },
             {
+                path: "/contact",
+                element: <Contact/>
+            },
+            {
                 path: '/hotels',
                 element: <Hotels />
+            },
+            {
+                path: '/hotels/:id',
+                element: <HotelDetails />
             },
             {
                 path: '/myreviews',
