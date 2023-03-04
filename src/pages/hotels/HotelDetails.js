@@ -3,7 +3,9 @@ import React from 'react';
 const HotelDetails = () => {
     return (
         <div>
-            dd
+            <div>
+                dd
+            </div>
         </div>
     );
 };
