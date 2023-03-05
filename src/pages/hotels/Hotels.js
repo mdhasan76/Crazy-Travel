@@ -21,9 +21,9 @@ const Hotels = () => {
             </div>
             <div className='max-w-2xl mx-auto my-10 md:mt-20'>
                 <div className='flex justify-center items-center'>
-                    <div className='h-1 bg-yellow-400 w-11 mr-4'></div>
-                    <p className=' font-bold tracking-[5px] text-3xl text-center text-[#1a4e7b]'>POPULAR HOTELS</p>
-                    <div className='h-1 bg-yellow-400 w-11 ml-4'></div>
+                    <div className='h-1 bg-yellow-400 w-11 mr-3'></div>
+                    <p className=' font-bold tracking-[5px] text-2xl sm:text-3xl text-center text-[#1a4e7b]'>POPULAR HOTELS</p>
+                    <div className='h-1 bg-yellow-400 w-11 ml-3'></div>
                 </div>
                 <p className='leading-8 text-center mt-5'>Dummy text ever since the 1500s, when an unknown printer took. A galley of type and scrambled it to make a type specimen book.</p>
             </div>
