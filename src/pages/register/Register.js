@@ -60,7 +60,7 @@ const Register = () => {
                         </label>
                     </div>
                     <div className="form-control mt-3">
-                        <button className="btn btn-primary">Register</button>
+                        <button className="mt-2 px-3 py-2 bg-slate-300 text-[#003a6c] hover:bg-[#0b3962] hover:text-white duration-500   font-semibold">Register</button>
                     </div>
                 </form>
             </div>

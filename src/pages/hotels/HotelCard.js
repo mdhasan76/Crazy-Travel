@@ -1,7 +1,7 @@
 import React from 'react';
 import { GoLocation } from 'react-icons/go';
 import { FaRegUserCircle } from 'react-icons/fa';
-import { FcRating } from 'react-icons/fc';
+import { BsFillStarFill } from 'react-icons/bs';
 import { PhotoProvider, PhotoView } from 'react-photo-view';
 import { Link } from 'react-router-dom';
 
@@ -13,7 +13,7 @@ const HotelCard = ({ data }) => {
             <div className='[&_.imgClass]:hover:scale-105 mb-5  overflow-hidden'>
                 <PhotoProvider>
                     <PhotoView src={img}>
-                        <img src={img} className="imgClass duration-300" alt="car!" />
+                        <img src={img} className="imgClass duration-300 cursor-pointer" alt="car!" />
                     </PhotoView>
                 </PhotoProvider>
                 <div className='h-48 bg-white border border-gray-100 hover:shadow-lg duration-500 text-sm'>
@@ -23,10 +23,10 @@ const HotelCard = ({ data }) => {
                             <p className='flex gap-3 mt-5'> <GoLocation />{street}</p>
                         </div>
                         <div className='col-span-2 px-5 my-3  text-center'>
-                            <p className='text-2xl text-blue-400 font-bold'>${price}</p>
-                            <p>/night</p>
-                            <p className='flex items-center gap-2'><FaRegUserCircle />{capacity} Persons</p>
-                            <p className='flex items-center gap-2'><FcRating />{ratings}</p>
+                            <p className='text-2xl text-blue-400 font-bold mr-2 lg:mr-0 inline-block lg:block'>${price}</p>
+                            <p className='inline-block lg:block'>/night</p>
+                            <p className='flex items-center my-2'><FaRegUserCircle className='mr-1' />{capacity} Persons</p>
+                            <p className='flex items-center gap-2'><BsFillStarFill className='text-yellow-400' />{ratings}</p>
                         </div>
                         
                     <div className='px-5 mt-6'>

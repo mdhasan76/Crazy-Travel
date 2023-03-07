@@ -87,13 +87,13 @@ const LogIn = () => {
                         error && <p className='text-rose-600 '>{error}</p>
                     }
                     <div className="form-control mt-3">
-                        <button className="btn btn-primary">Login</button>
+                        <button className="mt-2 px-3 py-2 bg-slate-300 text-[#003a6c] hover:bg-[#0b3962] hover:text-white duration-500 font-semibold text-lg ">Login</button>
                     </div>
                 </form>
                 <div className='p-7 pt-0'>
                     <div className="divider mt-0">OR</div>
                     <div className="form-control">
-                        <button onClick={google} className="btn btn-primary  hover:bg-red-400 duration-300 border-none">Continue With Google</button>
+                        <button onClick={google} className="mt-2 px-3 py-2 bg-slate-300 text-[#003a6c] hover:bg-[#0b3962] hover:text-white duration-500   font-semibold">Continue With Google</button>
                     </div>
                 </div>
             </div>
