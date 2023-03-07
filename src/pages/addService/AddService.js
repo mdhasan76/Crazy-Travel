@@ -54,7 +54,7 @@ const AddService = () => {
                         <textarea className='border-2 p-2' name="description" placeholder='Write Description' required></textarea>
                     </div>
                     <div className="form-control mt-3">
-                        <button className="btn btn-primary">Add Service</button>
+                        <button className="mt-2 px-3 py-2 bg-slate-300 text-[#003a6c] hover:bg-[#0b3962] hover:text-white duration-500   font-semibold">Add Service</button>
                     </div>
                 </form>
             </div>

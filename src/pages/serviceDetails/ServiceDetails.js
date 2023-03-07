@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
+import { toast } from 'react-hot-toast';
 import { Link, useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../shared/AuthProvider';
 import useTitle from '../../shared/useTitle';
@@ -7,6 +8,8 @@ const ServiceDetails = () => {
     const { user } = useContext(AuthContext)
     const { _id, img, title, description, price } = useLoaderData();
     const [review, setReview] = useState([]);
+    const [newReview, setNewReview] = useState("");
+
     useTitle("Service Details")
 
     useEffect(() => {
@@ -15,7 +18,7 @@ const ServiceDetails = () => {
             .then(data => {
                 setReview(data)
             })
-    }, [_id])
+    }, [_id, newReview])
     // console.log(review)
 
     const addReview = (e) => {
@@ -36,11 +39,17 @@ const ServiceDetails = () => {
             body: JSON.stringify(reviewData)
         })
             .then(res => res.json())
-            .then(data => console.log(data))
-        e.target.reset()
-        console.log(reviewData)
-    }
+            .then(data => {
+                if(data.acknowledged){
+                    toast.success("Review Add Successfull")
+                    setNewReview(reviewText)
+                }
 
+            })
+        e.target.reset()
+        // console.log(reviewData)
+    }
+    // console.log(newReview)
     return (
         <section>
             <div className='p-4'>
@@ -74,12 +83,12 @@ const ServiceDetails = () => {
                     {
                         user ? <form onSubmit={addReview}>
                             <textarea className='border-2 w-full p-3 focus:outline-green-400' name='review' placeholder='add your review' required></textarea>
-                            <button className="border-none w-full my-3 bg-blue-600 py-2 px-4 text-white font-medium rounded-lg hover:bg-red-400 duration-300">Add Review</button>
+                            <button className="mt-2 px-3 py-2 bg-slate-300 text-[#003a6c] hover:bg-[#0b3962] hover:text-white duration-500   font-semibold w-full">Add Review</button>
                         </form>
                             :
                             <div>
                                 <h3 className='text-lg text-semibold text-red-600 mt-10'>Please Login first for add your Review</h3>
-                                <Link to={'/login'} className="border-none w-full block text-center my-3 bg-blue-600 py-2 px-4 text-white font-medium rounded-lg hover:bg-red-400 duration-300">Login Now</Link>
+                                <Link to={'/login'} className="mt-2 px-3 py-2 bg-slate-300 text-[#003a6c] hover:bg-[#0b3962] hover:text-white duration-500   font-semibold w-full">Login Now</Link>
                             </div>
                     }
                 </div>
