@@ -13,16 +13,16 @@ const MyReviews = () => {
 
 
     useEffect(() => {
-        fetch(`https://crazy-travle-server.vercel.app/myreviews?email=${user?.email}`, {
+        fetch(`${process.env.REACT_APP_URL}/myreviews?email=${user?.email}`, {
             headers: {
                 authorization: `Bearer ${localStorage.getItem('token')}`
             }
         })
             .then(res => {
-                if (res.status === 401 || res.status === 403) {
-                    localStorage.removeItem('token')
-                    return logOut()
-                }
+                // if (res.status === 401 || res.status === 403) {
+                //     localStorage.removeItem('token')
+                //     return logOut()
+                // }
                 return res.json()
             })
             .then(data => {
@@ -32,7 +32,7 @@ const MyReviews = () => {
     // console.log(reviewData)
 
     const deleteReview = (id) => {
-        fetch(`https://crazy-travle-server.vercel.app/deletereview/${id}`, {
+        fetch(`${process.env.REACT_APP_URL}/deletereview/${id}`, {
             method: "DELETE",
         })
             .then(res => res.json())

@@ -13,7 +13,7 @@ const ServiceDetails = () => {
     useTitle("Service Details")
 
     useEffect(() => {
-        fetch(`https://crazy-travle-server.vercel.app/review/${_id}`)
+        fetch(`${process.env.REACT_APP_URL}/review/${_id}`)
             .then(res => res.json())
             .then(data => {
                 setReview(data)
@@ -31,7 +31,7 @@ const ServiceDetails = () => {
             reviewer: { email: user.email, reviewerImg: user.photoURL, name: user.displayName }
         }
 
-        fetch("https://crazy-travle-server.vercel.app/addreview", {
+        fetch(`${process.env.REACT_APP_URL}/addreview`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -88,7 +88,7 @@ const ServiceDetails = () => {
                             :
                             <div>
                                 <h3 className='text-lg text-semibold text-red-600 mt-10'>Please Login first for add your Review</h3>
-                                <Link to={'/login'} className="mt-2 px-3 py-2 bg-slate-300 text-[#003a6c] hover:bg-[#0b3962] hover:text-white duration-500   font-semibold w-full">Login Now</Link>
+                                <Link to={'/login'} className=" w-full block text-center mt-4 px-3 py-2 bg-slate-300 text-[#003a6c] hover:bg-[#0b3962] hover:text-white duration-500   font-semibold">Login Now</Link>
                             </div>
                     }
                 </div>

@@ -22,17 +22,17 @@ export const router = createBrowserRouter([
         children: [
             {
                 path: '/',
-                loader: () => fetch('https://crazy-travle-server.vercel.app/shortServices'),
+                loader: () => fetch(`${process.env.REACT_APP_URL}/shortServices`),
                 element: <Home />
             },
             {
                 path: '/services',
-                loader: () => fetch('https://crazy-travle-server.vercel.app/services'),
+                loader: () => fetch(`${process.env.REACT_APP_URL}/services`),
                 element: <Allservices />
             },
             {
                 path: '/service/:id',
-                loader: ({ params }) => fetch(`https://crazy-travle-server.vercel.app/service/${params.id}`),
+                loader: ({ params }) => fetch(`${process.env.REACT_APP_URL}/service/${params.id}`),
                 element: <ServiceDetails />
             },
             {
@@ -74,7 +74,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/editreview/:id',
-                loader: ({ params }) => fetch(`https://crazy-travle-server.vercel.app/editreview/${params.id}`),
+                loader: ({ params }) => fetch(`${process.env.REACT_APP_URL}/editreview/${params.id}`),
                 element: <EditReview />
             }
         ]

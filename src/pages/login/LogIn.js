@@ -27,7 +27,7 @@ const LogIn = () => {
 
                 console.log(currentUser)
                 //get user token 
-                fetch("https://crazy-travle-server.vercel.app/jwt", {
+                fetch(`${process.env.REACT_APP_URL}/jwt`, {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json"
