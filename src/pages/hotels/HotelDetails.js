@@ -6,6 +6,12 @@ import { GoLocation } from 'react-icons/go';
 import { PhotoProvider, PhotoView } from 'react-photo-view';
 import HotelDetailsBanner from './HotelDetailsBanner';
 import OurPromise from './OurPromise';
+import facilities1 from "../../assets/facilities-icon/fac-img1.png"
+import facilities2 from "../../assets/facilities-icon/fac-img2.png"
+import facilities3 from "../../assets/facilities-icon/fac-img3.png"
+import facilities4 from "../../assets/facilities-icon/fac-img4.png"
+import facilities5 from "../../assets/facilities-icon/fac-img5.png"
+import facilities6 from "../../assets/facilities-icon/fac-img6.png"
 
 const HotelDetails = () => {
 
@@ -49,16 +55,44 @@ const HotelDetails = () => {
         ]
     }
 
-    // useEffect(() =>{
-    //     setInterval(() => {
-    //         console.log("hellow")
-    //     )
-    // })
+    const facilitiesData = [
+        {
+            img: facilities1,
+            title: "CUSTOM FOOD",
+            text: "Free Morning Breakfast"
+        },
+        {
+            img: facilities2,
+            title: "FULLY FURNISHED",
+            text: "With LED TV’s & Sofas"
+        },
+        {
+            img: facilities3,
+            title: "MODERN BATHROOM",
+            text: "Enjoy your world as you like"
+        },
+        {
+            img: facilities4,
+            title: "FREE WI-FI OPTION",
+            text: "Enjoy your world as you like"
+        },
+        {
+            img: facilities5,
+            title: "SWIMMIN POOL ACCESS",
+            text: "Full Day time access"
+        },
+        {
+            img: facilities6,
+            title: "FREE LOCAL COMMUTE",
+            text: "Enjoy your world as you like"
+        },
+    ]
 
     return (
         <div>
             <HotelDetailsBanner bannerImg={data.banner} name={data.name} />
-            <div className='max-w-6xl mx-auto container'>
+            <div className='max-w-6xl mx-auto'>
+                <div className=' container mx-auto'>
                 <PhotoProvider
                     speed={() => 800}
                     easing={(type) => (type === 2 ? 'cubic-bezier(0.36, 0, 0.66, -0.56)' : 'cubic-bezier(0.34, 1.56, 0.64, 1)')}
@@ -69,7 +103,7 @@ const HotelDetails = () => {
                         </PhotoView>
                     ))}
                 </PhotoProvider>
-                <div className='flex justify-between items-end'>
+                <div className='flex justify-between items-end p-3 sm:p-0'>
                     <div>
                         <div>
                             <h1 className='text-2xl text-[#003a6c] font-bold mb-3'>Single Room <span className='text-base font-normal'> London</span></h1>
@@ -88,13 +122,33 @@ const HotelDetails = () => {
                         <p className='px-2'><ImShare2 className='mr-1' /></p>
                     </div>
                 </div>
-                <hr className='my-8' />
-                <p style={{ lineHeight: "30px" }} className='mb-8 text-justify'>{data.des}</p>
+                <hr className='my-8 ' />
+                <p style={{ lineHeight: "30px" }} className='mb-8 text-justify  p-3 sm:p-0'>{data.des}</p>
 
                 <div className='px-7 mb-8'>
                     <OurPromise title={"The best of all the Goodness"} text={"Not to get ot only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged"} />
                     <OurPromise title={"Hospatility like your home"} text={"Making the best it has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged."} />
                     <OurPromise title={"The best of all the Goodness"} text={"We are making the It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged."} />
+                </div>
+
+                <div className=' p-3 sm:p-0'>
+                    <div className='flex items-center my-10 md:my-16'>
+                        <p className='font-bold tracking-[5px] text-2xl sm:text-3xl text-[#1a4e7b]'>OUR FACILITIES</p>
+                        <div className='h-1 bg-yellow-400 w-11 ml-3'></div>
+                    </div>
+                    <div className='grid md:grid-cols-2 [&>div]:border-b [&>div]:border-gray-200 md:[&>*:nth-child(odd)]:border-r [&>*:nth-child(odd)]:border-gray-200 
+                    md:[&>*:nth-child(5)]:border-b-0 md:[&>*:nth-child(6)]:border-b-0 mb-10 md:mb-16'>
+                        {
+                           facilitiesData.map((d, i) => <div key={i} className="py-7 px-5 flex gap-5">
+                                <div className=''><img src={d.img} alt=""/></div>
+                                <div>
+                                    <h4 className='text-[#003a6c] font-bold tracking-[2px] mb-1'>{d.title}</h4>
+                                    <p className=''>{d.text}</p>
+                                </div>
+                           </div>) 
+                        }
+                    </div>
+                </div>
                 </div>
             </div>
         </div>
