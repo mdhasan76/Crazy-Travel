@@ -93,62 +93,92 @@ const HotelDetails = () => {
             <HotelDetailsBanner bannerImg={data.banner} name={data.name} />
             <div className='max-w-6xl mx-auto'>
                 <div className=' container mx-auto'>
-                <PhotoProvider
-                    speed={() => 800}
-                    easing={(type) => (type === 2 ? 'cubic-bezier(0.36, 0, 0.66, -0.56)' : 'cubic-bezier(0.34, 1.56, 0.64, 1)')}
-                >
-                    {data.bannerSlid.map((item, index) => (
-                        <PhotoView key={index} src={item}>
-                            {index < 1 ? <img src={item} alt="" className="imgClass cursor-pointer duration-300 w-full max-h-[450px] my-7 object-cover" /> : undefined}
-                        </PhotoView>
-                    ))}
-                </PhotoProvider>
-                <div className='flex justify-between items-end p-3 sm:p-0'>
-                    <div>
+                    <PhotoProvider
+                        speed={() => 800}
+                        easing={(type) => (type === 2 ? 'cubic-bezier(0.36, 0, 0.66, -0.56)' : 'cubic-bezier(0.34, 1.56, 0.64, 1)')}
+                    >
+                        {data.bannerSlid.map((item, index) => (
+                            <PhotoView key={index} src={item}>
+                                {index < 1 ? <img src={item} alt="" className="imgClass cursor-pointer duration-300 w-full max-h-[450px] my-7 object-cover" /> : undefined}
+                            </PhotoView>
+                        ))}
+                    </PhotoProvider>
+                    <div className='flex justify-between items-end p-3 sm:p-0'>
                         <div>
-                            <h1 className='text-2xl text-[#003a6c] font-bold mb-3'>Single Room <span className='text-base font-normal'> London</span></h1>
+                            <div>
+                                <h1 className='text-2xl text-[#003a6c] font-bold mb-3'>Single Room <span className='text-base font-normal'> London</span></h1>
 
+                            </div>
+                            <div className='flex items-end mb-2'>
+                                <p className='mr-3'>from</p>
+                                <p className='text-[#01abff] text-2xl font-bold mr-3'>${"22.0"}</p>
+                                <p className='mr-3'>/ night</p>
+                                <p ><FcRating className='inline-block' /> 4.5</p>
+                            </div>
+                            <p > <GoLocation className='inline-block' /> {data.street}</p>
                         </div>
-                        <div className='flex items-end mb-2'>
-                            <p className='mr-3'>from</p>
-                            <p className='text-[#01abff] text-2xl font-bold mr-3'>${"22.0"}</p>
-                            <p className='mr-3'>/ night</p>
-                            <p ><FcRating className='inline-block' /> 4.5</p>
+                        <div className='flex items-center text-lg'>
+                            <p className='border-r-2 px-2'><AiOutlineHeart className='inline-block' /> <span>2</span></p>
+                            <p className='px-2'><ImShare2 className='mr-1' /></p>
                         </div>
-                        <p > <GoLocation className='inline-block' /> {data.street}</p>
                     </div>
-                    <div className='flex items-center text-lg'>
-                        <p className='border-r-2 px-2'><AiOutlineHeart className='inline-block' /> <span>2</span></p>
-                        <p className='px-2'><ImShare2 className='mr-1' /></p>
-                    </div>
-                </div>
-                <hr className='my-8 ' />
-                <p style={{ lineHeight: "30px" }} className='mb-8 text-justify  p-3 sm:p-0'>{data.des}</p>
+                    <hr className='my-8 ' />
+                    <p style={{ lineHeight: "30px" }} className='mb-8 text-justify  p-3 sm:p-0'>{data.des}</p>
 
-                <div className='px-7 mb-8'>
-                    <OurPromise title={"The best of all the Goodness"} text={"Not to get ot only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged"} />
-                    <OurPromise title={"Hospatility like your home"} text={"Making the best it has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged."} />
-                    <OurPromise title={"The best of all the Goodness"} text={"We are making the It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged."} />
-                </div>
-
-                <div className=' p-3 sm:p-0'>
-                    <div className='flex items-center my-10 md:my-16'>
-                        <p className='font-bold tracking-[5px] text-2xl sm:text-3xl text-[#1a4e7b]'>OUR FACILITIES</p>
-                        <div className='h-1 bg-yellow-400 w-11 ml-3'></div>
+                    <div className='px-7 mb-8'>
+                        <OurPromise title={"The best of all the Goodness"} text={"Not to get ot only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged"} />
+                        <OurPromise title={"Hospatility like your home"} text={"Making the best it has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged."} />
+                        <OurPromise title={"The best of all the Goodness"} text={"We are making the It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged."} />
                     </div>
-                    <div className='grid md:grid-cols-2 [&>div]:border-b [&>div]:border-gray-200 md:[&>*:nth-child(odd)]:border-r [&>*:nth-child(odd)]:border-gray-200 
+
+                    {/* Our Facilities part  */}
+                    <div className=' p-3 sm:p-0'>
+                        <div className='flex items-center my-10 md:my-16'>
+                            <p className='font-bold tracking-[5px] text-2xl sm:text-3xl text-[#1a4e7b]'>OUR FACILITIES</p>
+                            <div className='h-1 bg-yellow-400 w-11 ml-3'></div>
+                        </div>
+                        <div className='grid md:grid-cols-2 [&>div]:border-b [&>div]:border-gray-200 md:[&>*:nth-child(odd)]:border-r [&>*:nth-child(odd)]:border-gray-200 
                     md:[&>*:nth-child(5)]:border-b-0 md:[&>*:nth-child(6)]:border-b-0 mb-10 md:mb-16'>
-                        {
-                           facilitiesData.map((d, i) => <div key={i} className="py-7 px-5 flex gap-5">
-                                <div className=''><img src={d.img} alt=""/></div>
-                                <div>
-                                    <h4 className='text-[#003a6c] font-bold tracking-[2px] mb-1'>{d.title}</h4>
-                                    <p className=''>{d.text}</p>
-                                </div>
-                           </div>) 
-                        }
+                            {
+                                facilitiesData.map((d, i) => <div key={i} className="py-7 px-5 flex gap-5">
+                                    <div className=''><img src={d.img} alt="" /></div>
+                                    <div>
+                                        <h4 className='text-[#003a6c] font-bold tracking-[2px] mb-1'>{d.title}</h4>
+                                        <p className=''>{d.text}</p>
+                                    </div>
+                                </div>)
+                            }
+                        </div>
                     </div>
-                </div>
+
+                    {/* Leave a commet part  */}
+                    <div className='mb-10 md:mb-16 p-3 sm:p-0'>
+                    <div className='flex items-center'>
+                            <p className='font-bold tracking-[5px] text-2xl sm:text-3xl text-[#1a4e7b]'>OUR REVIEWS</p>
+                            <div className='h-1 bg-yellow-400 w-11 ml-3'></div>
+                        </div>
+                        <form>
+                            <div className='mt-10 mb-8'>
+                                <p className='mb-3'>Your email address will not be published.</p>
+                                <p>Required fields are marked *</p>
+                            </div>
+                            <div className='mb-8'>
+                                <p className='mb-4'>Your Review <span className='text-red-600'> *</span> </p>
+                                <textarea rows={5} className='outline outline-gray-200 outline-1 p-5 focus:outline-gray-200 focus:bg-[#f2f2f2] duration-300 w-full py-3 resize-none' required></textarea>
+                            </div>
+                            <div className='sm:grid grid-cols-2 gap-5'>
+                            <div className='mb-8'>
+                                <p className='mb-4'>Name<span className='text-red-600'> *</span> </p>
+                                <input type="text" className='outline outline-gray-200 outline-1 p-5 focus:outline-gray-200 focus:bg-[#f2f2f2] duration-300 w-full py-3' required />
+                            </div>
+                            <div className='mb-8'>
+                                <p className='mb-4'>Email<span className='text-red-600'> *</span> </p>
+                                <input type="email" className='outline outline-gray-200 outline-1 p-5 focus:outline-gray-200 focus:bg-[#f2f2f2] duration-300 w-full py-3' required />
+                            </div>
+                            </div>
+                            <input type="submit" value="SUBMIT" className='bg-[#01abff] py-3 px-5 text-white tracking-widest' />
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
