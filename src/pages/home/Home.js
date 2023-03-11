@@ -8,6 +8,7 @@ import OurBlog from './OurBlog';
 import Services from './Services';
 import ServiceT from './ServiceT';
 import State from './State';
+import WhyUs from './WhyUs';
 
 const Home = () => {
     useTitle("Crazy Travel")
@@ -17,6 +18,7 @@ const Home = () => {
             <GetHotels/>
             <ServiceT/>
             <Services />
+            <WhyUs/>
             <State />
             <About />
             <OurBlog/>
