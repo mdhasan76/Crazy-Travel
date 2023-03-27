@@ -71,7 +71,18 @@ const AuthProvider = ({ children }) => {
         })
     },[]); 
 
-    const authInfo = { user, setUser, googleLogIn, createNewUser, logIn, updateUserProfile, logOut,loading,blogData }
+    const [hotels, setHotels] = useState([]);
+    useEffect(() => {
+        axios.get('/hotel.json')
+            .then(function (res) {
+                setHotels(res.data)
+            })
+            .catch(function (err) {
+                console.log(err)
+            })
+    }, [])
+
+    const authInfo = { user, setUser, googleLogIn, createNewUser, logIn, updateUserProfile, logOut,loading,blogData, hotels }
     return (
         <AuthContext.Provider value={authInfo}>
             {

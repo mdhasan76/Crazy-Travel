@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { AiOutlineHeart } from 'react-icons/ai';
 import { ImShare2 } from 'react-icons/im';
 import { FcRating } from 'react-icons/fc';
@@ -12,8 +12,14 @@ import facilities3 from "../../assets/facilities-icon/fac-img3.png"
 import facilities4 from "../../assets/facilities-icon/fac-img4.png"
 import facilities5 from "../../assets/facilities-icon/fac-img5.png"
 import facilities6 from "../../assets/facilities-icon/fac-img6.png"
+import { AuthContext } from '../../shared/AuthProvider';
+import { useParams } from 'react-router-dom';
 
 const HotelDetails = () => {
+    const {hotels} = useContext(AuthContext);
+    const { id } = useParams();
+    const detailsData = hotels.find(d => d.id === parseInt(id));
+    const {name, img, banner, bannerSlid, capacity, ratings, locate, price, street, des} = detailsData;
 
     const data = {
         "id": 9,
@@ -86,18 +92,18 @@ const HotelDetails = () => {
             title: "FREE LOCAL COMMUTE",
             text: "Enjoy your world as you like"
         },
-    ]
+    ];
 
     return (
         <div>
-            <HotelDetailsBanner bannerImg={data.banner} name={data.name} />
+            <HotelDetailsBanner bannerImg={banner} name={name} />
             <div className='max-w-6xl mx-auto'>
                 <div className=' container mx-auto'>
                     <PhotoProvider
                         speed={() => 800}
                         easing={(type) => (type === 2 ? 'cubic-bezier(0.36, 0, 0.66, -0.56)' : 'cubic-bezier(0.34, 1.56, 0.64, 1)')}
                     >
-                        {data.bannerSlid.map((item, index) => (
+                        {bannerSlid.map((item, index) => (
                             <PhotoView key={index} src={item}>
                                 {index < 1 ? <img src={item} alt="" className="imgClass cursor-pointer duration-300 w-full max-h-[450px] my-7 object-cover" /> : undefined}
                             </PhotoView>
@@ -106,16 +112,16 @@ const HotelDetails = () => {
                     <div className='flex justify-between items-end p-3 sm:p-0'>
                         <div>
                             <div>
-                                <h1 className='text-2xl text-[#003a6c] font-bold mb-3'>Single Room <span className='text-base font-normal'> London</span></h1>
+                                <h1 className='text-2xl text-[#003a6c] font-bold mb-3'>{name} <span className='text-base font-normal'> {locate}</span></h1>
 
                             </div>
                             <div className='flex items-end mb-2'>
                                 <p className='mr-3'>from</p>
-                                <p className='text-[#01abff] text-2xl font-bold mr-3'>${"22.0"}</p>
+                                <p className='text-[#01abff] text-2xl font-bold mr-3'>${price}</p>
                                 <p className='mr-3'>/ night</p>
-                                <p ><FcRating className='inline-block' /> 4.5</p>
+                                <p ><FcRating className='inline-block' /> {ratings}</p>
                             </div>
-                            <p > <GoLocation className='inline-block' /> {data.street}</p>
+                            <p > <GoLocation className='inline-block' /> {street}</p>
                         </div>
                         <div className='flex items-center text-lg'>
                             <p className='border-r-2 px-2'><AiOutlineHeart className='inline-block' /> <span>2</span></p>
@@ -123,7 +129,7 @@ const HotelDetails = () => {
                         </div>
                     </div>
                     <hr className='my-8 ' />
-                    <p style={{ lineHeight: "30px" }} className='mb-8 text-justify  p-3 sm:p-0'>{data.des}</p>
+                    <p style={{ lineHeight: "30px" }} className='mb-8 text-justify  p-3 sm:p-0'>{des}</p>
 
                     <div className='px-7 mb-8'>
                         <OurPromise title={"The best of all the Goodness"} text={"Not to get ot only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged"} />

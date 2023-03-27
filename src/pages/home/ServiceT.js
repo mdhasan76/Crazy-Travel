@@ -33,9 +33,9 @@ const ServiceT = () => {
                 <div className='container mx-auto'>
                 <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 py-10 md:py-16'>
                     {
-                        serviceT.map((d,i) => <div key={i} className="p-5">
+                        serviceT.map((d,i) => <div key={i} className="p-5 hover:[&_img]:rotate-[360deg] ">
                         <div className='mb-8'>
-                            <img src={d.img} alt=""/>
+                            <img src={d.img} alt="" className='innerImg  duration-500'/>
                         </div>
                         <h4 className='text-[#003a6c] font-bold tracking-[2px] pb-3'>
                             {d.title}
