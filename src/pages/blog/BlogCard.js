@@ -1,11 +1,18 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import {MdOutlineDateRange} from "react-icons/md"
+import {MdOutlineDateRange} from "react-icons/md";
+import AOS from "aos"
 
 const BlogCard = ({data}) => {
     const {cardImg, date,title, description3,id } = data;
+    useEffect(() => {
+        AOS.init({
+            duration: 1000
+        });
+       }, []);
     return (
-        <div>
+        <div data-aos="fade-up"
+        data-aos-anchor-placement="center-bottom">
             <div className='[&_.imgClass]:hover:scale-105 mb-5'>
                     <div className='overflow-hidden'>
                         <img src={cardImg} alt={""} className="imgClass h-56 w-full object-cover mb-5 duration-300" />

@@ -1,11 +1,18 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom'
 import { PhotoProvider, PhotoView } from 'react-photo-view';
+import AOS from "aos"
 
 const ServiceCard = ({ service }) => {
     const { title, description, price, img, _id } = service;
+    useEffect(() => {
+        AOS.init({
+            duration: 1000
+        });
+       }, []);
     return (
-        <div className="card glass mb-5 rounded-none">
+        <div data-aos="fade-up"
+        data-aos-anchor-placement="center-bottom" className="card glass mb-5 rounded-none">
             <PhotoProvider>
                 <PhotoView src={img}>
                     <img src={img} className="" alt="car!" />

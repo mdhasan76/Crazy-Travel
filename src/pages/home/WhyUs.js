@@ -1,27 +1,38 @@
-import React from 'react';
-import global from "../../assets/whyUs/globe.png"
-import book from "../../assets/whyUs/book.png"
-import trolly from "../../assets/whyUs/trolly.png"
-import women from "../../assets/whyUs/why-us-img-new.png"
+import React, { useEffect } from 'react';
+import global from "../../assets/whyUs/globe.png";
+import book from "../../assets/whyUs/book.png";
+import trolly from "../../assets/whyUs/trolly.png";
+import women from "../../assets/whyUs/why-us-img-new.png";
+import AOS from "aos"
 
 const WhyUs = () => {
     const serviceT = [
         {
             img: global,
             title: "All Around the World Tours",
-            text: "Dummy text ever since the 1500s, when an unknown printer took. A galley of type and scrambled it to make a type"
+            text: "Dummy text ever since the 1500s, when an unknown printer took. A galley of type and scrambled it to make a type",
+            animateStyle: "fade-right"
         },
         {
             img: trolly,
             title: "Private & Customized Tours",
-            text: "Dummy text ever since the 1500s, when an unknown printer took. A galley of type and scrambled it to make a type"
+            text: "Dummy text ever since the 1500s, when an unknown printer took. A galley of type and scrambled it to make a type",
+            animateStyle: "fade-left"
         },
         {
             img: book,
             title: "Immigration & Passport Help",
-            text: "Dummy text ever since the 1500s, when an unknown printer took. A galley of type and scrambled it to make a type"
+            text: "Dummy text ever since the 1500s, when an unknown printer took. A galley of type and scrambled it to make a type",
+            animateStyle: "fade-right"
         },
     ];
+
+    useEffect(() => {
+        AOS.init({
+            duration: 1000
+        });
+       }, []);
+
     return (
         <section className="bg-[url('https://dtora.wpengine.com/wp-content/uploads/2019/04/why-us-section-bg.jpg')] bg-cover bg-center py-10 md:py-20">
             <div className='max-w-6xl mx-auto px-5'>
@@ -39,7 +50,7 @@ const WhyUs = () => {
 
                             <div>
                                 {
-                                    serviceT.map((d, i) => <div key={i} className="p-5 flex">
+                                    serviceT.map((d, i) => <div key={i} className="p-5 flex" data-aos={d.animateStyle}>
                                         <div className='mb-8 w-36'>
                                             <img src={d.img} alt="" />
                                         </div>
@@ -57,7 +68,7 @@ const WhyUs = () => {
 
                         </div>
 
-                        <div className='z-10 aniwhy'>
+                        <div className='z-10 aniwhy' data-aos="fade-left">
                             <div className='px-4 relative'>
                                 <div className='
                                 after:animate-[my_1s_ease-in-out_infinite_alternate_running]  after:w-[80%] after:mt-[20%] after:border-[15px]  after:-z-10 after:absolute  after:h-[75%] after:top-0 after:left-0 after:ml-[10%]'>
