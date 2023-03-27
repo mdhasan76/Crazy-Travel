@@ -1,16 +1,23 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { GoLocation } from 'react-icons/go';
 import { FaRegUserCircle } from 'react-icons/fa';
 import { BsFillStarFill } from 'react-icons/bs';
 import { PhotoProvider, PhotoView } from 'react-photo-view';
 import { Link } from 'react-router-dom';
+import AOS from "aos";
 
-const HotelCard = ({ data }) => {
-    const { name, img, price, capacity, ratings, street,id } = data
+const HotelCard = ({ data,aosAnimate }) => {
+    const { name, img, price, capacity, ratings, street,id } = data;
+    useEffect(() => {
+        AOS.init({
+            duration: 1000
+        });
+       }, []);
 
     return (
-        <div>
-            <div className='[&_.imgClass]:hover:scale-105 mb-5  overflow-hidden'>
+        <div data-aos="fade-up"
+        data-aos-anchor-placement="center-bottom">
+            <div className='[&_.imgClass]:hover:scale-105 mb-5  overflow-hidden' >
                 <PhotoProvider>
                     <PhotoView src={img}>
                         <img src={img} className="imgClass duration-300 cursor-pointer" alt="car!" />
